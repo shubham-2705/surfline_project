@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">Surfline</string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="user_name_email">User name / Email</string>
+    <string name="password">Password</string>
+    <string name="contact_id">Contact Id</string>
+    <string name="username">Username</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="to_purchase_any_of_these_bundles_visit_https_mysurfline_surflinegh_com_selfcare_or_visit_your_nearest_surfline_store_or_retailer">To purchase any of these bundles, visit https://mysurfline.surflinegh.com/Selfcare or visit your nearest Surfline store or retailer.</string>
+    <string name="skip">Skip</string>
+    <string name="network_error">No Internet Connection, please ensure you are connected!</string>
+    <string name="loading">Loading…Please wait</string>
+    <string name="common_error_msg">Sorry, we are not able to complete your request. Kindly try again.</string>
+    <string name="data_calculator">Data Calculator</string>
+    <string name="extras">Extras</string>
+    <string name="devices">Devices</string>
+    <string name="bundles">Bundles</string>
+    <string name="surfplus_bundles_just_got_upgraded">SurfPlus Bundles Just Got Upgraded !</string>
+    <string name="video_bundle">Video Bundle</string>
+    <string name="surf_bundle">Surf Bundle</string>
+    <string name="unlimited_bundle">Unlimited Bundle</string>
+    <string name="surfline_u_share">Surfline U-Share</string>
+    <string name="the_surf_bundles_is_a_discontinued_offer_currently_available_only_to_customers_who_are_still_enjoying_the_benefits_of_the_wowerful_and_surfprise_promos">The Surf Bundles is a discontinued offer currently available only to customers who are still enjoying the benefits of the WOWerful and SURFprise Promos.</string>
+    <string name="u_share_is_a_value_added_service_that_enables_surfline_customers_to_transfer_a_portion_of_their_data_allowance_to_other_subscribers">U-Share is a value added service that enables Surfline customers to transfer a portion of their data allowance to other subscribers.</string>
+    <string name="surfplus_dialog_bundles_values">1MB (PAYG)\n\n0.5GB\n\n1.5GB\n\n5GB\n\n12GB\n\n25GB\n\n50GB\n\n60GB</string>
+    <string name="surfplus_dialog_validity_values">N/A\n\n15\n\n30\n\n30\n\n30\n\n30\n\n30\n\n90</string>
+    <string name="bundle">Bundle</string>
+    <string name="validity_days">Validity (Days)</string>
+    <string name="price_ghs">Price (GHS)</string>
+    <string name="surfplus_dialog_price_values">0.049\n\n9.90\n\n19\n\n29\n\n69\n\n129\n\n239\n\n399</string>
+    <string name="internet_package">Internet Package</string>
+    <string name="unlimited_dialog_internet_values">Unlimited\n\nUnlimited Night</string>
+    <string name="unlimited_dialog_price_values">299\n\n99</string>
+    <string name="unlimited_dialog_validity_values">30\n\n30</string>
+    <string name="data">Data</string>
+    <string name="video_dialog_internet_values">Video Bundle</string>
+    <string name="video_dialog_data_values">25</string>
+    <string name="video_dialog_price_values">99</string>
+    <string name="video_dialog_validity_values">30</string>
+    <string name="myAlphaNumeric">abcdefghijklmnopqrstuv wxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+
+
+    <!--Sign Up Questions-->
+    <string-array name="selectBox1">
+        <item>Select Question 1</item>
+        <item>What is your father\'s occupation?</item>
+        <item>What is your mother\'s maiden name?</item>
+        <item>What is the name of your first boss?</item>
+        <item>What is the name of your hometown?</item>
+        <item>Do you have a sibling?</item>
+        <item>What is your favourite novel?</item>
+        <item>Who is your role model?</item>
+    </string-array>
+
+    <string-array name="selectBox1_IDs">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>12</item>
+        <item>13</item>
+    </string-array>
+
+    <string-array name="selectBox2">
+        <item>Select Question 2</item>
+        <item>What is your favourite colour?</item>
+        <item>What is name of your favourite teacher?</item>
+        <item>What day of the week were you born?</item>
+        <item>In what city or town was your first job?</item>
+        <item>What is your maternal grandmother\'s maiden name?</item>
+        <item>Which is your favourite web browser?</item>
+        <item>Name of Favourite Teacher?</item>
+    </string-array>
+
+    <string-array name="selectBox2_IDs">
+        <item></item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>16</item>
+    </string-array>
+
+
+    <string-array name="menu_">
+        <item>Store Locator</item>
+        <item>Retailer</item>
+        <item>Bundles</item>
+        <item>Devices</item>
+        <item>About us</item>
+
+    </string-array>
+
+    <string name="fb_url">https://www.facebook.com/SurflineLTE</string>
+    <string name="twitter_url">https://twitter.com/SurflineGH</string>
+    <string name="answer_1">Answer 1</string>
+    <string name="answer_2">Answer 2</string>
+</resources>

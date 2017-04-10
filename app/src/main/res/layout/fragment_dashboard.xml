@@ -1,0 +1,273 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bk">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        tools:context="com.surfline.surflinegh.ui.activities.WelcomeActivity">
+
+        <RelativeLayout
+            android:id="@+id/llyUserInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/imvProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/app_name"
+                android:src="@mipmap/profile" />
+
+            <TextView
+                android:id="@+id/txvprofilename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imvProfile"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_size_22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txvbalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txvprofilename"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/padding_5"
+                android:layout_marginTop="@dimen/padding_5"
+                android:gravity="center_horizontal"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/app_text_size" />
+
+            <ProgressBar
+                android:id="@+id/progressBarBalance"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txvprofilename"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/padding_5"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorPrimaryDark"
+                android:indeterminateTintMode="src_atop"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llyMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/llyBundlelayout"
+                style="@style/dashboard_menu_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dashboard_menu_height"
+                android:background="@drawable/dashboard_menu_item_shape"
+                android:paddingEnd="@dimen/padding_20"
+                android:paddingLeft="@dimen/padding_15"
+                android:paddingRight="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_15">
+
+                <ImageView
+                    android:id="@+id/imvBundles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/bundle" />
+
+                <ImageView
+                    android:id="@+id/imvArrow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/arrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/padding_10"
+                    android:layout_marginLeft="@dimen/padding_10"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/imvBundles"
+                    android:layout_toLeftOf="@id/imvArrow1"
+                    android:layout_toRightOf="@id/imvBundles"
+                    android:layout_toStartOf="@id/imvArrow1"
+                    android:text="@string/bundles"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/app_text_size"
+                     />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llyDevicelayout"
+                style="@style/dashboard_menu_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dashboard_menu_height"
+                android:background="@drawable/dashboard_menu_item_shape"
+                android:paddingEnd="@dimen/padding_20"
+                android:paddingLeft="@dimen/padding_15"
+                android:paddingRight="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_15">
+
+                <ImageView
+                    android:id="@+id/imvExtras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/extras" />
+
+                <ImageView
+                    android:id="@+id/imvArrow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/arrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/padding_10"
+                    android:layout_marginLeft="@dimen/padding_10"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/imvExtras"
+                    android:layout_toLeftOf="@id/imvArrow2"
+                    android:layout_toRightOf="@id/imvExtras"
+                    android:layout_toStartOf="@id/imvArrow2"
+                    android:text="@string/devices"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/app_text_size" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llyExtralayout"
+                style="@style/dashboard_menu_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dashboard_menu_height"
+                android:background="@drawable/dashboard_menu_item_shape"
+                android:paddingEnd="@dimen/padding_20"
+                android:paddingLeft="@dimen/padding_15"
+                android:paddingRight="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_15">
+
+                <ImageView
+                    android:id="@+id/imvDevices"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/devices" />
+
+                <ImageView
+                    android:id="@+id/imvArrow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/arrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/imvDevices"
+                    android:layout_marginStart="@dimen/padding_10"
+                    android:layout_marginLeft="@dimen/padding_10"
+                    android:layout_toLeftOf="@id/imvArrow3"
+                    android:layout_toRightOf="@id/imvDevices"
+                    android:layout_toStartOf="@id/imvArrow3"
+                    android:text="@string/extras"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/app_text_size" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llyDataCalculatorlayout"
+                style="@style/dashboard_menu_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dashboard_menu_height"
+                android:background="@drawable/dashboard_menu_item_shape"
+                android:paddingEnd="@dimen/padding_20"
+                android:paddingLeft="@dimen/padding_15"
+                android:paddingRight="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_15">
+
+                <ImageView
+                    android:id="@+id/imvDataCal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/data_calculator" />
+
+                <ImageView
+                    android:id="@+id/imvArrow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/arrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/padding_10"
+                    android:layout_marginLeft="@dimen/padding_10"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/imvDataCal"
+                    android:layout_toLeftOf="@id/imvArrow4"
+                    android:layout_toRightOf="@id/imvDataCal"
+                    android:layout_toStartOf="@id/imvArrow4"
+                    android:text="@string/data_calculator"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/app_text_size" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
+

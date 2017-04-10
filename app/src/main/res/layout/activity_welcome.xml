@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_welcome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_1"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.surfline.surflinegh.ui.activities.WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/imvSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@string/app_name"
+        android:src="@mipmap/surfline" />
+
+    <LinearLayout
+        android:id="@+id/llyAfterSplash"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_200"
+            android:background="@mipmap/signin" />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_10"
+            android:background="@mipmap/signup" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_30"
+            android:orientation="horizontal">
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:textSize="@dimen/app_text_size"-->
+            <!--android:padding="@dimen/padding_5"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:text="@string/have_an_account"-->
+            <!--/>-->
+            <TextView
+                android:id="@+id/txvSkip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_10"
+                android:text="@string/skip"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/form_textsize"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

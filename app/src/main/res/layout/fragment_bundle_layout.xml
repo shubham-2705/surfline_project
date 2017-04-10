@@ -1,0 +1,308 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bk">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_welcome"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/padding_30"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context="com.surfline.surflinegh.ui.activities.WelcomeActivity">
+
+
+
+        <TextView
+            android:id="@+id/txvbalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_30"
+            android:gravity="start"
+            android:padding="@dimen/padding_5"
+            android:lineSpacingMultiplier="1.1"
+            android:text="@string/to_purchase_any_of_these_bundles_visit_https_mysurfline_surflinegh_com_selfcare_or_visit_your_nearest_surfline_store_or_retailer"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/app_text_size" />
+
+        <RelativeLayout
+            android:id="@+id/llyBundlelayout1"
+            style="@style/dashboard_menu_item_style"
+            android:layout_marginLeft="@dimen/padding_25"
+            android:layout_marginRight="@dimen/padding_25"
+            android:layout_width="match_parent"
+            android:layout_marginTop="0dp"
+            android:padding="0dp"
+            android:paddingRight="@dimen/padding_10"
+            android:paddingEnd="@dimen/padding_10"
+            android:layout_height="@dimen/bundle_menu_height"
+            android:background="@drawable/bundle_menu_item_shape"
+            >
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvBundleSurfPlus"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/bundle_surfplus"/>
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvArrow"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="@dimen/padding_3"
+                android:layout_marginStart="@dimen/padding_3"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/arrow"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imvBundleSurfPlus"
+                android:layout_toStartOf="@id/imvArrow"
+                android:layout_toRightOf="@id/imvBundleSurfPlus"
+                android:layout_toLeftOf="@id/imvArrow"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/surfplus_bundles_just_got_upgraded"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_text_size"/>
+
+
+        </RelativeLayout>
+        <include
+            android:id="@+id/layout1"
+            layout="@layout/dialog_surfplus_bundle"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:id="@+id/llyBundlelayout2"
+            style="@style/dashboard_menu_item_style"
+            android:layout_marginLeft="@dimen/padding_25"
+            android:layout_marginRight="@dimen/padding_25"
+            android:layout_width="match_parent"
+            android:padding="0dp"
+            android:paddingRight="@dimen/padding_10"
+            android:paddingEnd="@dimen/padding_10"
+            android:layout_height="@dimen/bundle_menu_height"
+            android:background="@drawable/bundle_menu_item_shape"
+            >
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvBundlevideo"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/bundle_surfplus"/>
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvArrow2"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="@dimen/padding_3"
+                android:layout_marginStart="@dimen/padding_3"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/arrow"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imvBundlevideo"
+                android:layout_toStartOf="@id/imvArrow2"
+                android:layout_toRightOf="@id/imvBundlevideo"
+                android:layout_toLeftOf="@id/imvArrow2"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/video_bundle"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_text_size"/>
+
+
+        </RelativeLayout>
+        <include
+            android:id="@+id/layout2"
+            layout="@layout/dialog_video_bundle"
+            android:visibility="gone"
+            />
+        <RelativeLayout
+            android:id="@+id/llyBundlelayout3"
+            style="@style/dashboard_menu_item_style"
+            android:layout_marginLeft="@dimen/padding_25"
+            android:layout_marginRight="@dimen/padding_25"
+            android:layout_width="match_parent"
+            android:padding="0dp"
+            android:paddingRight="@dimen/padding_10"
+            android:paddingEnd="@dimen/padding_10"
+            android:layout_height="@dimen/bundle_menu_height"
+            android:background="@drawable/bundle_menu_item_shape"
+            >
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvBundleSurf"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/bundle_surfplus"/>
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvArrow3"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="@dimen/padding_3"
+                android:layout_marginStart="@dimen/padding_3"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/arrow"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imvBundleSurf"
+                android:layout_toStartOf="@id/imvArrow3"
+                android:layout_toRightOf="@id/imvBundleSurf"
+                android:layout_toLeftOf="@id/imvArrow3"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/surf_bundle"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_text_size"/>
+
+
+        </RelativeLayout>
+        <include
+            android:id="@+id/layout3"
+            layout="@layout/dialog_surf_bundle"
+            android:visibility="gone"
+            />
+        <RelativeLayout
+            android:id="@+id/llyBundlelayout4"
+            style="@style/dashboard_menu_item_style"
+            android:layout_marginLeft="@dimen/padding_25"
+            android:layout_marginRight="@dimen/padding_25"
+            android:layout_width="match_parent"
+            android:padding="0dp"
+            android:paddingRight="@dimen/padding_10"
+            android:paddingEnd="@dimen/padding_10"
+            android:layout_height="@dimen/bundle_menu_height"
+            android:background="@drawable/bundle_menu_item_shape"
+            >
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvBundleunlimited"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/bundle_surfplus"/>
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvArrow4"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="@dimen/padding_3"
+                android:layout_marginStart="@dimen/padding_3"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/arrow"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imvBundleunlimited"
+                android:layout_toStartOf="@id/imvArrow4"
+                android:layout_toRightOf="@id/imvBundleunlimited"
+                android:layout_toLeftOf="@id/imvArrow4"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/unlimited_bundle"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_text_size"/>
+
+
+        </RelativeLayout>
+        <include
+            android:id="@+id/layout4"
+            layout="@layout/dialog_unlimited_bundle"
+            android:visibility="gone"
+            />
+        <RelativeLayout
+            android:id="@+id/llyBundlelayout5"
+            style="@style/dashboard_menu_item_style"
+            android:layout_marginLeft="@dimen/padding_25"
+            android:layout_marginRight="@dimen/padding_25"
+            android:layout_width="match_parent"
+            android:padding="0dp"
+            android:paddingRight="@dimen/padding_10"
+            android:paddingEnd="@dimen/padding_10"
+            android:layout_height="@dimen/bundle_menu_height"
+            android:background="@drawable/bundle_menu_item_shape"
+            >
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvBundleushare"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/bundle_surfplus"/>
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imvArrow5"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="@dimen/padding_3"
+                android:layout_marginStart="@dimen/padding_3"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/arrow"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imvBundleushare"
+                android:layout_toStartOf="@id/imvArrow5"
+                android:layout_toRightOf="@id/imvBundleushare"
+                android:layout_toLeftOf="@id/imvArrow5"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/surfline_u_share"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_text_size"/>
+
+
+        </RelativeLayout>
+        <include
+            android:id="@+id/layout5"
+            layout="@layout/dialog_ushare_bundle"
+            android:visibility="gone"
+            />
+
+
+
+    </LinearLayout>
+</ScrollView>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0682c4</color>
+    <color name="colorPrimaryDark">#193e6d</color>
+    <color name="colorAccent">#FFFFFF</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="light_blue">#0682c4</color>
+    <color name="dark_blue">#193e6d</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent">#99000000</color>
+    <color name="black_color">#000000</color>
+    <color name="gray_color">#dddddd</color>
+    <color name="slider_light_gray_color">#DEDFE0</color>
+    <color name="slider_dark_gray_color">#B5B9BB</color>
+</resources>

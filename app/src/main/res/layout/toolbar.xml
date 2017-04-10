@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_alignParentTop="true"
+    android:background="?attr/colorPrimaryDark"
+    android:gravity="center_vertical"
+    android:paddingRight="@dimen/padding_10"
+    android:paddingEnd="@dimen/padding_10"
+    android:paddingLeft="@dimen/padding_10"
+    android:paddingStart="@dimen/padding_10"
+    android:contentInsetStart="0dp"
+    android:contentInsetLeft="0dp"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
+    android:contentInsetRight="0dp"
+    android:contentInsetEnd="0dp"
+    app:contentInsetRight="0dp"
+    app:contentInsetEnd="0dp"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    >
+
+    <!--<ImageView-->
+        <!--android:id="@+id/homeORback"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:padding="@dimen/padding_5"-->
+        <!--android:contentDescription="@string/app_name"-->
+        <!--android:src="@mipmap/budgermenu"-->
+        <!--android:visibility="visible" />-->
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/padding_5"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/form_textsize" />
+
+
+    <ImageView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:contentDescription="@string/app_name"
+        android:src="@mipmap/logout"
+        android:visibility="visible" />
+
+</android.support.v7.widget.Toolbar>

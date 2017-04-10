@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:elevation="@dimen/padding_7"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_5"
+    android:layout_marginLeft="@dimen/padding_25"
+    android:layout_marginStart="@dimen/padding_25"
+    android:layout_marginRight="@dimen/padding_25"
+    android:layout_marginEnd="@dimen/padding_25"
+    android:layout_marginBottom="@dimen/padding_15"
+    android:background="@drawable/bundle_drop_down_shape"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/app_text_size"
+        android:lineSpacingMultiplier="1.3"
+        android:text="@string/u_share_is_a_value_added_service_that_enables_surfline_customers_to_transfer_a_portion_of_their_data_allowance_to_other_subscribers"/>
+
+</LinearLayout>

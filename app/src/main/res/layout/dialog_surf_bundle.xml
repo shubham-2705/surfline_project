@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:elevation="@dimen/padding_10"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_5"
+    android:layout_marginLeft="@dimen/padding_25"
+    android:layout_marginStart="@dimen/padding_25"
+    android:layout_marginRight="@dimen/padding_25"
+    android:layout_marginEnd="@dimen/padding_25"
+    android:background="@drawable/bundle_drop_down_shape"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/app_text_size"
+        android:lineSpacingMultiplier="1.3"
+        android:text="@string/the_surf_bundles_is_a_discontinued_offer_currently_available_only_to_customers_who_are_still_enjoying_the_benefits_of_the_wowerful_and_surfprise_promos"/>
+
+</LinearLayout>

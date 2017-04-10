@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:elevation="@dimen/padding_10"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_5"
+    android:layout_marginLeft="@dimen/padding_25"
+    android:layout_marginStart="@dimen/padding_25"
+    android:layout_marginRight="@dimen/padding_25"
+    android:layout_marginEnd="@dimen/padding_25"
+    android:background="@drawable/bundle_drop_down_shape"
+    android:paddingBottom="15dp"
+    android:orientation="vertical">
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlyAddedAmt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txvAddedAmtlabel"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Balance for Transfer"/>
+
+                <TextView
+                    android:id="@+id/txvAddedAmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="0.00"/>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorPrimary"/>
+
+            <RelativeLayout
+                android:id="@+id/rlyPaybackAmt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txvPaybackAmtlabel"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PayBack + CashBack"/>
+                <TextView
+                    android:id="@+id/txvPaybackAmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="0.00"/>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                />
+
+
+            <RelativeLayout
+                android:id="@+id/rlyTotalAmt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txvTotalAmtlabel"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="Total Balance"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/txvTotalAmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="0.00"/>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+              />
+
+
+            <RelativeLayout
+                android:id="@+id/rlyNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txvNote"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </RelativeLayout>
+
+  </LinearLayout>
+
+
+
+</LinearLayout>

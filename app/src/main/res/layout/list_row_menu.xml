@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlyParent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingBottom="@dimen/padding_5"
+    android:paddingLeft="@dimen/padding_5"
+    android:paddingEnd="@dimen/padding_5"
+    android:paddingStart="@dimen/padding_5"
+    android:paddingRight="@dimen/padding_15"
+    android:paddingTop="@dimen/padding_5">
+
+    <TextView
+        android:id="@+id/txvMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/padding_18"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/drawer_text_size" />
+
+
+</RelativeLayout>

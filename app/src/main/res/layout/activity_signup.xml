@@ -1,0 +1,215 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_1">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_40"
+        android:paddingLeft="@dimen/padding_50"
+        android:paddingRight="@dimen/padding_50"
+        tools:context="com.surfline.surflinegh.ui.activities.WelcomeActivity">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/surfline_img_top_margin"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/surfline" />
+
+        <LinearLayout
+            android:id="@+id/llyInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/padding_20"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <EditText
+                android:id="@+id/edtmob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_35"
+                android:background="@mipmap/white_bg"
+                android:gravity="center_vertical"
+                android:hint="@string/mobile_number"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLines="1"
+                android:digits="0123456789"
+                android:paddingLeft="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_20"
+                android:textColor="@color/dark_blue"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="@dimen/form_textsize" />
+
+            <EditText
+                android:id="@+id/edtdob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/white_bg"
+                android:focusableInTouchMode="false"
+                android:gravity="center_vertical"
+                android:hint="@string/date_of_birth"
+                android:paddingLeft="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_20"
+                android:textColor="@color/dark_blue"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="@dimen/form_textsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llyMoreInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/edtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_35"
+                android:background="@mipmap/white_bg"
+                android:gravity="center_vertical"
+                android:hint="@string/username"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLength="100"
+                android:paddingLeft="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_20"
+                android:textColor="@color/dark_blue"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="@dimen/form_textsize" />
+
+            <!--<EditText-->
+            <!--android:id="@+id/edtcontactId"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@mipmap/white_bg"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:hint="@string/contact_id"-->
+            <!--android:imeOptions="actionNext"-->
+            <!--android:inputType="text"-->
+            <!--android:maxLength="50"-->
+            <!--android:paddingLeft="@dimen/padding_20"-->
+            <!--android:paddingStart="@dimen/padding_20"-->
+            <!--android:textColor="@color/dark_blue"-->
+            <!--android:textColorHint="@color/dark_blue"-->
+            <!--android:textSize="@dimen/form_textsize" />-->
+
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/white_bg"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_20"
+                android:textColor="@color/dark_blue"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="@dimen/form_textsize" />
+
+            <Spinner
+                android:id="@+id/spnQues1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/white_bg"
+                android:spinnerMode="dialog"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/form_textsize">
+
+            </Spinner>
+
+            <EditText
+                android:id="@+id/edtAns1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/white_bg"
+                android:gravity="center_vertical"
+                android:hint="@string/answer_1"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_20"
+                android:textColor="@color/dark_blue"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="@dimen/form_textsize" />
+
+            <Spinner
+                android:id="@+id/spnQues2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/white_bg"
+                android:spinnerMode="dialog"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/form_textsize">
+
+
+            </Spinner>
+
+            <EditText
+                android:id="@+id/edtAns2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/white_bg"
+                android:gravity="center_vertical"
+                android:hint="@string/answer_2"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_20"
+                android:textColor="@color/dark_blue"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="@dimen/form_textsize" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_40"
+            android:background="@mipmap/signup" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_10"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_5"
+                android:text="@string/have_an_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_text_size" />
+
+            <TextView
+                android:id="@+id/txvSignup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_5"
+                android:text="@string/sign_up"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/app_text_size"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

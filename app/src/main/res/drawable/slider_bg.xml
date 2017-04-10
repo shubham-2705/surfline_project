@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/padding_10" />
+            <padding android:bottom="10dp" />
+            <padding android:top="10dp" />
+            <padding android:left="10dp" />
+            <padding android:right="10dp" />
+            <solid android:color="@color/slider_light_gray_color" />
+        </shape>
+
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/slider_dark_gray_color" />
+            <corners android:radius="@dimen/padding_10" />
+        </shape>
+    </item>
+
+</layer-list>

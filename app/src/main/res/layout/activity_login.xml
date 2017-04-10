@@ -1,0 +1,104 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_1">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_50"
+        android:paddingRight="@dimen/padding_50"
+        android:orientation="vertical"
+        tools:context="com.surfline.surflinegh.ui.activities.WelcomeActivity">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/surfline_img_top_margin"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/surfline" />
+
+
+
+
+        <!--<SeekBar-->
+            <!--android:id="@+id/simpleSeekBar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:max="200"-->
+            <!--android:progressDrawable="@android:color/transparent"-->
+            <!--android:background="@drawable/slider_bg"/>-->
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_150"
+            android:background="@mipmap/white_bg"
+            android:gravity="center_vertical"
+            android:hint="@string/user_name_email"
+            android:inputType="textEmailAddress"
+            android:maxLength="50"
+            android:imeOptions="actionNext"
+            android:paddingLeft="@dimen/padding_20"
+            android:paddingStart="@dimen/padding_20"
+            android:textColor="@color/dark_blue"
+            android:textColorHint="@color/dark_blue"
+            android:textSize="@dimen/form_textsize" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/white_bg"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:hint="@string/password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:paddingLeft="@dimen/padding_20"
+            android:paddingStart="@dimen/padding_20"
+            android:textColor="@color/dark_blue"
+            android:textColorHint="@color/dark_blue"
+            android:textSize="@dimen/form_textsize" />
+
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_40"
+            android:background="@mipmap/signin" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_5"
+                android:text="@string/have_an_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_text_size" />
+
+            <TextView
+                android:id="@+id/txvSignup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_5"
+                android:text="@string/sign_up"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/app_text_size"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

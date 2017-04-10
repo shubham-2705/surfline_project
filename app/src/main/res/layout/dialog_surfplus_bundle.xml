@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/padding_25"
+    android:layout_marginLeft="@dimen/padding_25"
+    android:layout_marginRight="@dimen/padding_25"
+    android:layout_marginStart="@dimen/padding_25"
+    android:layout_marginTop="@dimen/padding_5"
+    android:background="@drawable/bundle_drop_down_shape"
+    android:elevation="@dimen/padding_10"
+    android:orientation="vertical"
+    android:padding="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bundle_menu_item_shape"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_10"
+        android:paddingEnd="@dimen/padding_5"
+        android:paddingLeft="@dimen/padding_5"
+        android:paddingRight="@dimen/padding_5"
+        android:paddingStart="@dimen/padding_5"
+        android:paddingTop="@dimen/padding_10"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="@string/bundle"
+            android:textColor="@color/white"
+            android:textSize="@dimen/app_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.05"
+            android:text="@string/validity_days"
+            android:textColor="@color/white"
+            android:textSize="@dimen/app_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.05"
+            android:text="@string/price_ghs"
+            android:textColor="@color/white"
+            android:textSize="@dimen/app_text_size"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_10"
+        android:paddingEnd="@dimen/padding_5"
+        android:paddingLeft="@dimen/padding_5"
+        android:paddingRight="@dimen/padding_5"
+        android:paddingStart="@dimen/padding_5"
+        android:paddingTop="@dimen/padding_10"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.9"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.3"
+            android:text="@string/surfplus_dialog_bundles_values"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/app_text_size" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.05"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.3"
+            android:text="@string/surfplus_dialog_validity_values"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/app_text_size" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.05"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.3"
+            android:text="@string/surfplus_dialog_price_values"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/app_text_size" />
+
+    </LinearLayout>
+
+</LinearLayout>
