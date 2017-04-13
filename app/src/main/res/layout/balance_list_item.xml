@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_marginLeft="@dimen/padding_10"
+    android:layout_marginStart="@dimen/padding_10"
+    android:weightSum="2"
+    android:layout_gravity="center_vertical"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_video"
+        android:contentDescription="@string/app_name" />
+    <TextView
+        android:id="@+id/txvbalanceType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.1"
+        android:visibility="gone"
+        android:padding="@dimen/padding_5"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/app_text_size"
+        />
+    <TextView
+        android:id="@+id/txvbalanceExpiry"
+        android:layout_width="0dp"
+        android:layout_weight="0.9"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/ic_ex"
+        android:visibility="gone"
+        android:drawableStart="@mipmap/ic_ex"
+        android:drawablePadding="@dimen/padding_5"
+        android:padding="@dimen/padding_5"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/app_text_size"
+        />
+
+</LinearLayout>

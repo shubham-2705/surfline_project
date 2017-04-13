@@ -6,6 +6,10 @@ import android.preference.PreferenceManager;
 
 import com.surfline.base.ui.fragment.BaseFragment;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class SurflineCacheManager {
 
@@ -49,6 +53,21 @@ public class SurflineCacheManager {
         return sharedPreferences.getBoolean(key, false);
     }
 
+    public void setArrayList(String key, ArrayList arrayList) {
+        Set<String> set = new HashSet<String>();
+        set.addAll(arrayList);
+        sharedPreferences.edit().putStringSet(key, set).apply();
+
+    }
+
+    public ArrayList<String> getArrayList(String key) {
+
+        Set<String> set = sharedPreferences.getStringSet(key, new HashSet<String>());
+        ArrayList<String> result = new ArrayList<String>(set);
+        return result;
+
+    }
+
     public void setLong(String key, Long value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putLong(key, value);
@@ -78,6 +97,7 @@ public class SurflineCacheManager {
         removeKey(prefsList);
 
     }
+
     public void clearAll() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();

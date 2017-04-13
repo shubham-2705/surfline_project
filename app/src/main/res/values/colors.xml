@@ -15,4 +15,5 @@
     <color name="gray_color">#dddddd</color>
     <color name="slider_light_gray_color">#DEDFE0</color>
     <color name="slider_dark_gray_color">#B5B9BB</color>
+    <color name="spinner_bg">#6685A2</color>
 </resources>

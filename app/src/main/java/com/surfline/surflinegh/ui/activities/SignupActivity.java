@@ -38,15 +38,18 @@ import com.surfline.surflinegh.persistence.SurflineCacheManager;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class SignupActivity extends BaseActivity implements UpdateGsonListener.onUpdateViewListener,View.OnClickListener {
 
-    private EditText edtmob, edtdob, edtUsername, edtPassword,edtAns1,edtAns2;
+    private EditText edtmob, edtdob, edtUsername, edtPassword,edtAns1,edtAns2,edtEmail;
+    private TextView txvname;
     private Spinner spnQues1,spnQues2;
     private LinearLayout llyMoreInfo,llyInfo;
     private Calendar myCalendar = Calendar.getInstance();
     private static final String TAG = LoginActivity.class.getSimpleName();
     private Gson gson;
+    private static final String EMAIL_REGEX = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     private String signup_firstname="",signup_lastname="",signup_email="",signup_contactid="";
     private String[] questionList1 = {};
     private String[] questionList2 = {};
@@ -62,8 +65,10 @@ public class SignupActivity extends BaseActivity implements UpdateGsonListener.o
         edtmob = (EditText) findViewById(R.id.edtmob);
         edtdob = (EditText) findViewById(R.id.edtdob);
         edtUsername = (EditText) findViewById(R.id.edtUsername);
+        edtEmail = (EditText) findViewById(R.id.edtEmail);
 //        edtcontactId = (EditText) findViewById(R.id.edtcontactId);
         edtPassword = (EditText) findViewById(R.id.edtPassword);
+        txvname = (TextView) findViewById(R.id.txvname);
         edtAns1 = (EditText) findViewById(R.id.edtAns1);
         edtAns2 = (EditText) findViewById(R.id.edtAns2);
         spnQues1 = (Spinner) findViewById(R.id.spnQues1);
@@ -288,6 +293,8 @@ public class SignupActivity extends BaseActivity implements UpdateGsonListener.o
                                     signup_lastname=loginResponseModel.getLastName();
                                     signup_contactid=loginResponseModel.getContactId();
                                     edtUsername.requestFocus();
+                                    txvname.setText(loginResponseModel.getFirstName()+" "+loginResponseModel.getLastName());
+                                    edtEmail.setText(loginResponseModel.getEmailId());
 
 //                                    hitApi(ApiConstants.REQUEST_TYPE.SIGN_UP_STEP2);
 
@@ -304,26 +311,26 @@ public class SignupActivity extends BaseActivity implements UpdateGsonListener.o
                         break;
 
                     case ApiConstants.REQUEST_TYPE.SIGN_UP_STEP2:
-                        if (responseObject instanceof BaseResponseModel) {
-                            BaseResponseModel baseResponseModel = (BaseResponseModel) responseObject;
-                            if (!TextUtils.isEmpty(baseResponseModel.getStatusCode())) {
+                        if (responseObject instanceof LoginResponseModel) {
+                            LoginResponseModel loginResponseModel = (LoginResponseModel) responseObject;
+                            if (!TextUtils.isEmpty(loginResponseModel.getStatusCode())) {
 
-                                if (baseResponseModel.getStatusCode().equalsIgnoreCase(ApiConstants.Values.ResponseCodes.SUCCESS)) {
+                                if (loginResponseModel.getStatusCode().equalsIgnoreCase(ApiConstants.Values.ResponseCodes.SUCCESS)) {
 
                                     SurflineCacheManager.getInstance(SignupActivity.this).setBoolean(PrefrenceConstants.LOGGED_IN, true);
 
-                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.EMAIL, signup_email);
-                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.MOBILE_NO, edtmob.getText().toString().trim());
-                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.FIRST_NAME, signup_firstname);
-                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.LAST_NAME, signup_lastname);
-                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.CONTACT_ID, signup_contactid);
+                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.EMAIL, loginResponseModel.getEmailId());
+                                    SurflineCacheManager.getInstance(SignupActivity.this).setArrayList(PrefrenceConstants.MOBILE_NO, loginResponseModel.getMsisdn());
+                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.FIRST_NAME, loginResponseModel.getFirstName());
+                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.LAST_NAME, loginResponseModel.getLastName());
+                                    SurflineCacheManager.getInstance(SignupActivity.this).setString(PrefrenceConstants.CONTACT_ID, loginResponseModel.getContactId());
 
                                     ToastUtil.showLongToast(this,"Registration Completed Successfully");
                                     Intent intent = new Intent(SignupActivity.this, HomeActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivity(intent);
                                 } else {
-                                    ToastUtil.showLongToast(SignupActivity.this, baseResponseModel.getMessage());
+                                    ToastUtil.showLongToast(SignupActivity.this, loginResponseModel.getMessage());
                                 }
                             } else {
                                 ToastUtil.showLongToast(SignupActivity.this, getResources().getString(R.string.common_error_msg));
@@ -382,7 +389,7 @@ public class SignupActivity extends BaseActivity implements UpdateGsonListener.o
     private boolean validateForm(int reqType) {
         switch (reqType){
             case ApiConstants.REQUEST_TYPE.SIGN_UP_STEP1:
-                if (edtmob.getText().toString().trim().length() == 0) {
+                if (edtmob.getText().toString().trim().length() == 0 || edtmob.getText().toString().trim().length()<10) {
                     ToastUtil.showLongToast(this, "Please enter valid Mobile Number");
                     return false;
                 }
@@ -392,12 +399,18 @@ public class SignupActivity extends BaseActivity implements UpdateGsonListener.o
                 }
                 break;
             case ApiConstants.REQUEST_TYPE.SIGN_UP_STEP2:
-                if (edtUsername.getText().toString().trim().length() == 0) {
+
+                if (edtEmail.getText().toString().trim().length() == 0 || !Pattern.matches(EMAIL_REGEX, edtEmail.getText().toString().trim())) {
+                    ToastUtil.showLongToast(this, "Please enter valid Email Id");
+                    return false;
+                }
+
+                if (edtUsername.getText().toString().trim().length() == 0 || edtUsername.getText().toString().trim().length()<5) {
                     ToastUtil.showLongToast(this, "Please enter valid Username");
                     return false;
                 }
 
-                if (edtPassword.getText().toString().trim().length() == 0) {
+                if (edtPassword.getText().toString().trim().length() == 0 || edtPassword.getText().toString().trim().length()<5) {
                     ToastUtil.showLongToast(this, "Please enter valid Password");
                     return false;
                 }

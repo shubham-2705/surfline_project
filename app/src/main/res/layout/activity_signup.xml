@@ -41,6 +41,7 @@
                 android:hint="@string/mobile_number"
                 android:imeOptions="actionDone"
                 android:inputType="number"
+                android:maxLength="10"
                 android:maxLines="1"
                 android:digits="0123456789"
                 android:paddingLeft="@dimen/padding_20"
@@ -72,17 +73,43 @@
             android:orientation="vertical"
             android:visibility="gone">
 
+            <TextView
+                android:id="@+id/txvname"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/padding_10"
+                android:padding="@dimen/padding_10"
+                android:textColor="@color/white"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="@dimen/form_textsize"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/white_bg"
+                android:gravity="center_vertical"
+                android:hint="@string/email_id"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLength="50"
+                android:paddingLeft="@dimen/padding_20"
+                android:paddingStart="@dimen/padding_20"
+                android:textColor="@color/dark_blue"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="@dimen/form_textsize" />
+
             <EditText
                 android:id="@+id/edtUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_35"
                 android:background="@mipmap/white_bg"
                 android:gravity="center_vertical"
                 android:hint="@string/username"
                 android:imeOptions="actionNext"
                 android:inputType="text"
-                android:maxLength="100"
+                android:maxLength="30"
                 android:paddingLeft="@dimen/padding_20"
                 android:paddingStart="@dimen/padding_20"
                 android:textColor="@color/dark_blue"
@@ -116,6 +143,7 @@
                 android:hint="@string/password"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
+                android:maxLength="30"
                 android:paddingLeft="@dimen/padding_20"
                 android:paddingStart="@dimen/padding_20"
                 android:textColor="@color/dark_blue"

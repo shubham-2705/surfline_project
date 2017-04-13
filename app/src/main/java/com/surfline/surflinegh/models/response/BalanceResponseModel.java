@@ -20,9 +20,18 @@ public class BalanceResponseModel extends BaseResponseModel {
 
     public class BalanceData
     {
-        private String balanceType;
+        private String balanceTypeName;
         private String balanceUnits;
         private String balanceExpiry;
+        private String balanceBucketType;
+
+        public String getBalanceBucketType() {
+            return balanceBucketType;
+        }
+
+        public void setBalanceBucketType(String balanceBucketType) {
+            this.balanceBucketType = balanceBucketType;
+        }
 
         public String getBalanceExpiry() {
             return balanceExpiry;
@@ -33,11 +42,11 @@ public class BalanceResponseModel extends BaseResponseModel {
         }
 
         public String getBalanceType() {
-            return balanceType;
+            return balanceTypeName;
         }
 
         public void setBalanceType(String balanceType) {
-            this.balanceType = balanceType;
+            this.balanceTypeName = balanceType;
         }
 
         public String getBalanceUnits() {

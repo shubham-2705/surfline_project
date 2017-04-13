@@ -7,7 +7,7 @@ public interface ApiConstants {
 
 
     interface Urls {
-        String BASE_URL = "http://108.161.129.45:8040/surflineServices/"; // QA
+        String BASE_URL = "http://41.242.136.91:8090/SurflineAppServer/"; // QA
 //        String BASE_URL_DEV = "http://103.253.37.61/"; // DEV
 
 //        String BASE_URL = BASE_URL_DEV;

@@ -1,15 +1,17 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@mipmap/bk">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_welcome"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/padding_20"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_horizontal|center_vertical"
+        android:paddingBottom="@dimen/padding_35"
+        android:gravity="center_vertical"
         android:orientation="vertical"
         tools:context="com.surfline.surflinegh.ui.activities.WelcomeActivity">
 
@@ -25,51 +27,136 @@
                 android:id="@+id/imvProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/padding_30"
+                android:layout_marginStart="@dimen/padding_30"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:contentDescription="@string/app_name"
                 android:src="@mipmap/profile" />
 
             <TextView
                 android:id="@+id/txvprofilename"
                 android:layout_width="match_parent"
+                android:layout_toRightOf="@id/imvProfile"
+                android:layout_toEndOf="@id/imvProfile"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imvProfile"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_horizontal"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/padding_5"
+                android:gravity="start"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_size_22sp"
+                android:textSize="@dimen/profile_name_text_size"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txvbalance"
+            <!--<TextView-->
+                <!--android:id="@+id/txvbalance"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/txvprofilename"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginBottom="@dimen/padding_5"-->
+                <!--android:layout_marginTop="@dimen/padding_5"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:textColor="@color/colorPrimaryDark"-->
+                <!--android:textSize="@dimen/app_text_size" />-->
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/llyBalanceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_35"
+            android:layout_marginLeft="@dimen/padding_35"
+            android:layout_marginRight="@dimen/padding_35"
+            android:layout_marginEnd="@dimen/padding_35"
+            android:layout_marginTop="@dimen/padding_15"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/Spinnerlayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dashboard_menu_height"
+                android:background="@drawable/dashboard_spinner_bg"
+                android:elevation="@dimen/padding_7"
+                android:padding="@dimen/padding_5"
+                >
+
+                <Spinner
+                    android:id="@+id/Spinner"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:layout_width="match_parent"
+                    android:dropDownVerticalOffset="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                </Spinner>
+
+                <ImageView
+                    android:id="@+id/imvArrowSpinner"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_marginEnd="@dimen/padding_15"
+                    android:layout_marginRight="@dimen/padding_15"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/ic_down_arrow" />
+
+
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/imvrefresh"
+                android:padding="@dimen/padding_10"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/app_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txvprofilename"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/padding_5"
-                android:layout_marginTop="@dimen/padding_5"
-                android:gravity="center_horizontal"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/app_text_size" />
-
+                android:layout_below="@id/Spinnerlayout"
+                android:src="@mipmap/ic_refresh"/>
             <ProgressBar
                 android:id="@+id/progressBarBalance"
                 style="?android:attr/progressBarStyleSmall"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txvprofilename"
+                android:layout_below="@id/imvrefresh"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/padding_5"
+                android:layout_height="wrap_content"
                 android:indeterminate="true"
                 android:indeterminateTint="@color/colorPrimaryDark"
                 android:indeterminateTintMode="src_atop"
-                android:visibility="gone" />
+                android:visibility="visible" />
+            <LinearLayout
+                android:id="@+id/llybalanceData"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_5"
+                android:paddingStart="@dimen/padding_5"
+                android:layout_below="@id/imvrefresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+
+
         </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/llyMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_10"
             android:orientation="vertical">
 
             <RelativeLayout

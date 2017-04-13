@@ -23,6 +23,7 @@ import com.surfline.surflinegh.constants.ApiConstants;
 import com.surfline.surflinegh.models.request.LoginRequestModel;
 import com.surfline.surflinegh.models.response.LoginResponseModel;
 import com.surfline.surflinegh.persistence.PrefrenceConstants;
+import com.surfline.surflinegh.persistence.ShowLog;
 import com.surfline.surflinegh.persistence.SurflineCacheManager;
 
 public class LoginActivity extends BaseActivity implements UpdateGsonListener.onUpdateViewListener {
@@ -155,7 +156,7 @@ public class LoginActivity extends BaseActivity implements UpdateGsonListener.on
                                     SurflineCacheManager.getInstance(LoginActivity.this).setBoolean(PrefrenceConstants.LOGGED_IN, true);
 
                                     SurflineCacheManager.getInstance(LoginActivity.this).setString(PrefrenceConstants.EMAIL, loginResponseModel.getEmailId());
-                                    SurflineCacheManager.getInstance(LoginActivity.this).setString(PrefrenceConstants.MOBILE_NO, loginResponseModel.getMsisdn());
+                                    SurflineCacheManager.getInstance(LoginActivity.this).setArrayList(PrefrenceConstants.MOBILE_NO, loginResponseModel.getMsisdn());
                                     SurflineCacheManager.getInstance(LoginActivity.this).setString(PrefrenceConstants.FIRST_NAME, loginResponseModel.getFirstName());
                                     SurflineCacheManager.getInstance(LoginActivity.this).setString(PrefrenceConstants.LAST_NAME, loginResponseModel.getLastName());
                                     SurflineCacheManager.getInstance(LoginActivity.this).setString(PrefrenceConstants.CONTACT_ID, loginResponseModel.getContactId());

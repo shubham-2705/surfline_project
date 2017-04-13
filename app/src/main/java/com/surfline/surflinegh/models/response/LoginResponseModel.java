@@ -1,5 +1,7 @@
 package com.surfline.surflinegh.models.response;
 
+import java.util.ArrayList;
+
 /**
  * Created by shubhamlamba on 23/03/17.
  */
@@ -8,7 +10,7 @@ public class LoginResponseModel extends BaseResponseModel {
 
 
 
-    private String  msisdn;
+    private ArrayList<String> msisdn;
     private String  contactId;
     private String dateOfBirth;
     private String  firstName;
@@ -55,13 +57,11 @@ public class LoginResponseModel extends BaseResponseModel {
         this.lastName = lastName;
     }
 
-    public String getMsisdn() {
+    public ArrayList<String> getMsisdn() {
         return msisdn;
     }
 
-    public void setMsisdn(String msisdn) {
+    public void setMsisdn(ArrayList<String> msisdn) {
         this.msisdn = msisdn;
     }
-
-
 }

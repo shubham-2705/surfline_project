@@ -1,7 +1,9 @@
 package com.surfline.surflinegh.ui.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -10,10 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
 import android.view.ViewParent;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -44,12 +50,15 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
     private static final String TAG = DashBoardFragment.class.getSimpleName();
     private View v;
     private HomeActivity mActivity;
-    private ImageView imvProfile;
-    private RelativeLayout llyUserInfo;
-    private LinearLayout llyMenu;
-    private TextView txvprofilename, txvbalance;
+    private ImageView imvProfile, imvrefresh;
+    private RelativeLayout llyUserInfo, llyBalanceLayout;
+    private LinearLayout llyMenu, llybalanceData;
+    private TextView txvprofilename;
     private ProgressBar progressBarBalance;
     private Gson gson;
+    private Spinner Spinner;
+    private LayoutInflater layoutInflater;
+    private ArrayList<String> spinnerList;
 
     public DashBoardFragment() {
         // Required empty public constructor
@@ -71,17 +80,24 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
 
             if (SurflineCacheManager.getInstance(getBaseActivity()).getBoolean(PrefrenceConstants.LOGGED_IN)) {
                 // hit api for balance and show user name from cache
-                llyUserInfo.setVisibility(View.VISIBLE);
+                llyBalanceLayout.setVisibility(View.VISIBLE);
+                spinnerList = new ArrayList<String>();
+                if (SurflineCacheManager.getInstance(getBaseActivity()).getArrayList(PrefrenceConstants.MOBILE_NO).size() > 0) {
+                    for (int i = 0; i < SurflineCacheManager.getInstance(getBaseActivity()).getArrayList(PrefrenceConstants.MOBILE_NO).size(); i++) {
+                        spinnerList.add(SurflineCacheManager.getInstance(getBaseActivity()).getArrayList(PrefrenceConstants.MOBILE_NO).get(i));
+                    }
+                }
+                setSpinner();
                 txvprofilename.setText(SurflineCacheManager.getInstance(getBaseActivity()).getString(PrefrenceConstants.FIRST_NAME) + " " + SurflineCacheManager.getInstance(getBaseActivity()).getString(PrefrenceConstants.LAST_NAME));
                 try {
-                    txvbalance.setText("");
                     hitApi(ApiConstants.REQUEST_TYPE.GET_BALANCE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
                 // hide user info layout
-                llyUserInfo.setVisibility(View.GONE);
+                txvprofilename.setText("Guest User");
+                llyBalanceLayout.setVisibility(View.GONE);
             }
         }
     }
@@ -111,17 +127,24 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
 
                 if (SurflineCacheManager.getInstance(getBaseActivity()).getBoolean(PrefrenceConstants.LOGGED_IN)) {
                     // hit api for balance and show user name from cache
-                    llyUserInfo.setVisibility(View.VISIBLE);
+                    llyBalanceLayout.setVisibility(View.VISIBLE);
+                    spinnerList = new ArrayList<String>();
+                    if (SurflineCacheManager.getInstance(getBaseActivity()).getArrayList(PrefrenceConstants.MOBILE_NO).size() > 0) {
+                        for (int i = 0; i < SurflineCacheManager.getInstance(getBaseActivity()).getArrayList(PrefrenceConstants.MOBILE_NO).size(); i++) {
+                            spinnerList.add(SurflineCacheManager.getInstance(getBaseActivity()).getArrayList(PrefrenceConstants.MOBILE_NO).get(i));
+                        }
+                    }
+                    setSpinner();
                     txvprofilename.setText(SurflineCacheManager.getInstance(getBaseActivity()).getString(PrefrenceConstants.FIRST_NAME) + " " + SurflineCacheManager.getInstance(getBaseActivity()).getString(PrefrenceConstants.LAST_NAME));
                     try {
-                        txvbalance.setText("");
                         hitApi(ApiConstants.REQUEST_TYPE.GET_BALANCE);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
                     // hide user info layout
-                    llyUserInfo.setVisibility(View.GONE);
+                    txvprofilename.setText("Guest User");
+                    llyBalanceLayout.setVisibility(View.GONE);
                 }
 
 
@@ -139,6 +162,42 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
         return v;
     }
 
+    public void setSpinner() {
+        final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getBaseActivity(), R.layout.dashboard_spinner_item, spinnerList) {
+
+            @Override
+            public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                tv.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                return view;
+            }
+        };
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.dashboard_spinner_item);
+        Spinner.setAdapter(spinnerArrayAdapter);
+
+        Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(llybalanceData.getChildCount()>0) {
+                    llybalanceData.removeAllViews();
+                }
+                try {
+                    hitApi(ApiConstants.REQUEST_TYPE.GET_BALANCE);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+    }
+
     public void getIds(View view) {
         RelativeLayout llyBundlelayout = (android.widget.RelativeLayout) view.findViewById(R.id.llyBundlelayout);
         RelativeLayout llyDevicelayout = (RelativeLayout) view.findViewById(R.id.llyDevicelayout);
@@ -146,17 +205,20 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
         RelativeLayout llyDataCalculatorlayout = (RelativeLayout) view.findViewById(R.id.llyDataCalculatorlayout);
 
         imvProfile = (ImageView) view.findViewById(R.id.imvProfile);
+        imvrefresh = (ImageView) view.findViewById(R.id.imvrefresh);
         txvprofilename = (TextView) view.findViewById(R.id.txvprofilename);
-        txvbalance = (TextView) view.findViewById(R.id.txvbalance);
         llyUserInfo = (RelativeLayout) view.findViewById(R.id.llyUserInfo);
         llyMenu = (LinearLayout) view.findViewById(R.id.llyMenu);
+        llybalanceData = (LinearLayout) view.findViewById(R.id.llybalanceData);
+        llyBalanceLayout = (RelativeLayout) view.findViewById(R.id.llyBalanceLayout);
         progressBarBalance = (ProgressBar) view.findViewById(R.id.progressBarBalance);
+        Spinner = (Spinner) view.findViewById(R.id.Spinner);
 
         llyBundlelayout.setOnClickListener(this);
         llyDevicelayout.setOnClickListener(this);
         llyExtralayout.setOnClickListener(this);
         llyDataCalculatorlayout.setOnClickListener(this);
-        imvProfile.setOnClickListener(this);
+        imvrefresh.setOnClickListener(this);
     }
 
     @Override
@@ -172,7 +234,15 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
                 break;
             case R.id.llyDataCalculatorlayout:
                 break;
-            case R.id.imvProfile:
+            case R.id.imvrefresh:
+                if(llybalanceData.getChildCount()>0) {
+                    llybalanceData.removeAllViews();
+                }
+                try {
+                    hitApi(ApiConstants.REQUEST_TYPE.GET_BALANCE);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
 //            case R.id.txvprofilename:
 //                break;
@@ -223,7 +293,7 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
         switch (reqType) {
             case ApiConstants.REQUEST_TYPE.GET_BALANCE:
                 GetBalanceRequest getBalanceRequest = new GetBalanceRequest();
-                getBalanceRequest.setMsisdn(SurflineCacheManager.getInstance(getBaseActivity()).getString(PrefrenceConstants.MOBILE_NO));
+                getBalanceRequest.setMsisdn(Spinner.getSelectedItem().toString());
 
                 return gson.toJson(getBalanceRequest);
 
@@ -253,7 +323,18 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
                                 if (balanceResponseModel.getStatusCode().equalsIgnoreCase(ApiConstants.Values.ResponseCodes.SUCCESS)) {
 
                                     ArrayList<BalanceResponseModel.BalanceData> balanceData = balanceResponseModel.getBalanceData();
-                                    txvbalance.setText(balanceData.get(0).getBalanceType() + " " + balanceData.get(0).getBalanceUnits()+ "\n"+balanceData.get(0).getBalanceExpiry());
+                                    layoutInflater = (LayoutInflater) getBaseActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                                    if(llybalanceData.getChildCount()>0) {
+                                        llybalanceData.removeAllViews();
+                                    }
+                                    for (int i = 0; i < balanceData.size(); i++) {
+
+                                        if (!TextUtils.isEmpty(balanceData.get(i).getBalanceUnits()) || !TextUtils.isEmpty(balanceData.get(i).getBalanceExpiry())) {
+                                            inflateLayout(balanceData.get(i));
+                                        }
+                                    }
+//                                    txvbalance.setText(balanceData.get(0).getBalanceType() + " " + balanceData.get(0).getBalanceUnits()+ "\n"+balanceData.get(0).getBalanceExpiry());
 
                                 } else {
                                     ToastUtil.showLongToast(getBaseActivity(), balanceResponseModel.getMessage());
@@ -278,6 +359,43 @@ public class DashBoardFragment extends BaseFragment implements View.OnClickListe
             ToastUtil.showLongToast(getBaseActivity(), getResources().getString(R.string.common_error_msg));
             e.printStackTrace();
         }
+
+    }
+
+    public void inflateLayout(BalanceResponseModel.BalanceData balanceData) {
+        View layout = (LinearLayout) layoutInflater.inflate(R.layout.balance_list_item, null);
+
+        TextView txvbalanceType = (TextView) layout.findViewById(R.id.txvbalanceType);
+        TextView txvbalanceExpiry = (TextView) layout.findViewById(R.id.txvbalanceExpiry);
+        ImageView imvType = (ImageView) layout.findViewById(R.id.imvType);
+
+        if (!TextUtils.isEmpty(balanceData.getBalanceUnits())) {
+            txvbalanceType.setVisibility(View.VISIBLE);
+            txvbalanceType.setText(balanceData.getBalanceType() + " :" + balanceData.getBalanceUnits());
+        }
+        if (!TextUtils.isEmpty(balanceData.getBalanceExpiry())) {
+            txvbalanceExpiry.setVisibility(View.VISIBLE);
+            txvbalanceExpiry.setText(balanceData.getBalanceExpiry());
+        }
+
+        int imageType = Integer.parseInt(balanceData.getBalanceBucketType());
+
+        switch (imageType) {
+            case 1:
+                imvType.setImageResource(R.mipmap.ic_cash);
+                break;
+            case 2:
+                imvType.setImageResource(R.mipmap.ic_data);
+                break;
+            case 3:
+                imvType.setImageResource(R.mipmap.ic_video);
+                break;
+            case 4:
+                imvType.setImageResource(R.mipmap.ic_unlimited);
+                break;
+        }
+        llybalanceData.addView(layout);
+
 
     }
 
